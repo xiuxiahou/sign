@@ -1,0 +1,511 @@
+@charset "utf-8";
+/*初始化  reset*/
+blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0
+}
+
+body, button, input, select, textarea {
+    font-family: "华文细黑", "微软雅黑", SimSun, "宋体", sans-serif;
+}
+
+ol, ul {
+    list-style: none
+}
+
+a {
+    text-decoration: none;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+a, input, button, select, textarea {
+    outline: none;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+q:before, q:after {
+    content: '';
+}
+
+abbr, acronym {
+    border: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+.clear {
+    clear: both;
+    /* visibility: hidden;display: block;content: '';*/
+}
+
+b, i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+img {
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 0
+}
+/*店铺统计主页面*/
+.shopDate {
+    width: 100%;
+    height: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 2.5rem;
+}
+
+.shopDate > div {
+    width: 50%;
+    float: left;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+.shopChange img {
+    width: 0.85rem;
+    vertical-align: middle;
+}
+
+.shopChange .shopD {
+    font-size: 0.75rem;
+}
+
+.dateTim > div {
+    float: left;
+    width: 50%;
+    font-size: 0.75rem;
+}
+
+.whiteBg {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/*店铺统计主页面 end*/
+/*主题背景*/
+.shopAccount, #xiaoShou, .water, .tuihuo, .jinE, .rexiapp, .jinEKbg, #dianpuTj, .chongZBox {
+    background: url("../img/bg.jpg") no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+/*画布大小*/
+.month, .tuiHbox, .jinEr, .jinEK, .chongZhi, .wangGe,.tH_box{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.month, .pillar {
+    position: absolute;
+    width: 70%;
+}
+
+/*退货*/
+
+.tH_box,.jinEr_box{
+    position: relative;
+    color: #fff;
+}
+.tH_box {
+     background: url("../img/chongzhi/wg_1256.png") no-repeat;
+     background-size: cover;
+ }
+.montil {
+    position: absolute;
+    font-size: 0.65rem;
+    right: -2.3rem;
+    margin-top: -1.1rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.month {
+    height: 1rem;
+    margin-top: -1.2rem;
+    font-size: 0.8rem;
+}
+
+.month li, .pillar li {
+    float: left;
+    text-align: center;
+}
+
+.pillar li {
+    border-top: 1px solid transparent;
+    background-color: #fff;
+}
+.pillar li,.pillar li span,.pillar li b,.pillar li i{
+    display: none;
+}
+.pillar li span, .pillar li b, .pillar li i {
+    position: absolute;
+}
+
+.pillar li span {
+    border-style: solid;
+    border-color: #fff transparent transparent;
+}
+
+.pillar li b {
+    width: 4px;
+    height: 4px;
+    margin-left: -2px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.pillar li i {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-align: center;
+    display: none;
+}
+
+.tuiHbox,.jinEr{
+    min-height: 10rem;
+    margin: 2rem auto;
+    position: relative;
+}
+/*退货 end */
+/*金额K*/
+.jinErK {
+    width: 70%;
+    background: url("../img/chongzhi/wg34.png") no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.dateQiu {
+    position: absolute;
+    margin-top: -1.2rem;
+}
+
+.dateQiu li {
+    float: left;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.pingPang li {
+    float: left;
+    text-align: center;
+    display: none;
+}
+
+.pingPang li b {
+    display: block;
+    height: 0.4rem;
+    line-height: 0rem;
+}
+
+.point b {
+    font-size: 0.7rem;
+    opacity: 1;
+}
+
+.qiuQ .out_iner {
+    opacity: 1;
+}
+
+.out_iner {
+    /*width: 100%;*/
+    margin: 0 auto;
+}
+
+.outer {
+    width: 100%;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    margin: 0 auto;
+}
+
+.inner {
+    width: 90%;
+    border-radius: 100%;
+    background-color: #fff;
+    margin: 5% auto;
+    color: #3A2F6B;
+    font-size: 0.55rem;
+    text-align: center;
+}
+
+/*金额K end*/
+/*会员*/
+.huiyuan {
+    width: 70%;
+    margin: 2rem auto;
+    position: relative;
+    background: url("../img/chongzhi/wg_1256.png") no-repeat;
+    background-size: cover;
+}
+
+.huiy_month, .huiy_peo {
+    position: absolute;
+    color: #fff;
+    list-style: none;
+}
+
+.huiy_month {
+    width: 13%;
+    font-size: 0.8rem;
+    left: -17%;
+    opacity: 0.9;
+}
+
+.huiy_month li {
+    text-align: right;
+}
+
+.huiy_peo {
+    width: 100%;
+    overflow: hidden;
+}
+
+.huiy_peo li ul {
+    width: 100%;
+    list-style: none;
+}
+
+.huiy_peo li ul li {
+    float: left;
+    margin-right: 0.5rem;
+    font-size: 0.7rem;
+    opacity: 0;
+}
+
+.huiy_peo li img {
+    width: 0.5rem;
+    vertical-align: middle;
+    margin-top: -0.2rem;
+    margin-right: 0.15rem;
+}
+/*会员 end*/
+/*充值K*/
+.czBox {
+    width: 100%;
+    position: relative;
+    color: #fff;
+}
+
+.chongZhi {
+    background: url("../img/chongzhi/wg_1256.png") no-repeat;
+    background-size: cover;
+}
+
+.montUl {
+    position: absolute;
+    left: 9%;
+    font-size: 0.75rem;
+}
+
+.peopleUl {
+    overflow: hidden;
+}
+.chongZhi .peopleUl li{
+    /*display: none;*/
+    overflow: hidden;
+}
+.chongZhi .peopleUl li:after{clear: both;content: '';display: block;visibility: hidden;}
+.chongZhi .peopleUl li b {
+    display: inline-block;
+    float: left;
+    background: url("../img/chongzhi/zzt.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.chongZhi .peopleUl li span {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+
+.chongZhi .peopleUl li span i {
+    display: inline-block;
+    text-align: center;
+    font-size: 0.5rem;
+    opacity: 0;
+}
+
+.moneyUl {
+    position: absolute;
+    right: 15%;
+    top: 0;
+    font-size: 0.75rem;
+    text-align: center;
+    overflow: hidden;
+}
+.moneyUl li{opacity: 0;}
+/*充值K end*/
+
+/*热销品类*/
+.rxpBox {
+    width: 100%;
+    overflow: hidden;
+    color: #fff;
+}
+
+.rxpBox span {
+    display: inline-block;
+    font-size: 0.7rem;
+    position: absolute;
+    display: none;
+}
+
+.spone {
+    left: 58%;
+    top: 13%;
+}
+
+.sptwo {
+    left: 2%;
+    top: 33%;
+}
+
+.spthree {
+    left: 80%;
+    top: 42%;
+}
+
+.spthree {
+    left: 78%;
+    top: 49%;
+}
+
+.spfour {
+    left: 4%;
+    top: 56%;
+}
+
+.spfive {
+    left: 55%;
+    top: 66%;
+}
+
+.rxpdouble {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 100%;
+    width: 60%;
+    margin:10% 20%;
+}
+
+.rxpdouble img,.rxpdouble span {
+    position: absolute;
+    display: none;
+}
+/*热销品类 end*/
+
+/*热销品牌*/
+.center_til {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    font-size: 0.5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+    text-align: center;
+
+}
+#cil_box {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.img_cil {position: absolute; left: 50%; top: 50%;}
+.img_cil > span{color: #fff;position: absolute;z-index: 9999;font-size: 2rem;overflow: hidden;display: none;}
+.span_one{transform: rotate(-120deg);margin:-125px 0 0 -110px; width: 110px;}
+.span_two{transform: rotate(110deg);margin: 2px 0 0 -90px; width: 80px;}
+.span_three{transform: rotate(45deg); margin: -70px 0 0 25px;width: 55px;}
+.span_four{margin: -125px 0 0 -165px;width: 30px;}
+.span_five{transform: rotate(-45deg);margin:-260px 0 0 -10px; width: 30px;}
+
+#one { margin: -25px 0 0 -25px; transform: rotateZ(-20deg);}
+#two { margin: -57px 0 0 -52px; transform: rotateZ(170deg);}
+#three {margin: -75px 0 0 -78px;transform: rotateZ(50deg);}
+#four {margin: -105px 0 0 -100px;transform: rotateZ(180deg);}
+#five {margin: -125px 0 0 -125px;transform: rotateZ(10deg);}
+
+.img_cil > img {width: 2rem; position: absolute;display: none;}
+.img_one{margin: -190px 0 0 -100px;opacity: 0.3}
+.img_two{margin:55px 0 0 -100px;opacity: 0.4}
+.img_three{margin:-20px 0 0 60px;opacity: 0.6}
+.img_four{margin:-105px 0 0 -205px;opacity: 0.75}
+.img_five{margin:-275px 0 0 20px;opacity: 0.9}
+/*热销品牌 end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

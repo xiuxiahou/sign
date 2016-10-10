@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta id="viewport" name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>员工统计</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script>
+        (function (w) {
+            s();
+            var e = ("onorientationchange" in w) ? "orientationchange" : "resize";
+            w.addEventListener(e, function () {
+                setTimeout(function () {
+                    s()
+                }, 200)
+            }, false);
+            function s() {
+                var a = w.innerWidth;
+                var b = 20 * (a / 320);
+                if (b > 40) {
+                    b = 40;
+                }
+                document.querySelector("html").style.fontSize = b + "px";
+            }
+        })(window);
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="yuangtj">
+    <div class="staff_totle">
+        <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png" /> <span class="bg_befo">返回</span></p>
+        员工统计
+    </div>
+<div class="change_date">
+    <div class="shop">
+        <img src="img/qh@2x.png" class="img_change" alt="切换"/>
+        <select id="sel_shop">
+            <option value="国贸店">国贸店</option>
+            <option value="华贸店">华贸店</option>
+            <option value="贸店">贸店</option>
+        </select>
+    </div>
+    <div class="date"><input type="text" value="2016-08" id="data_chg" readonly="readonly"/></div>
+</div>
+<div class="statistics">
+    <ul class="stat_til">
+        <li>姓名</li>
+        <li>打卡</li>
+        <li>销售</li>
+        <li>办卡</li>
+        <li>评分</li>
+    </ul>
+    <div id="wrapperUl">
+        <ul class="xinxi">
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="1.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="3 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="3 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="3 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="2.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="3.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="3 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="4.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="3.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul>
+                    <li>小康</li>
+                    <li>14次</li>
+                    <li>20k</li>
+                    <li>10k</li>
+                    <li>
+                        <a href="#" class="tooltip-test" data-toggle="tooltip" title="2.5 评分">
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/totle.png" alt="评分" />
+                            <img class="grade" src="img/half.png" alt="评分" />
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!--<div id="calender">
+    <div>
+        <span class="last"><</span>
+        <input type="text" value="2014" id="year" readonly="readonly"/>
+        <span class="next">></span>
+    </div>
+    <div id="showYearMoth">
+        <div id="year_month">
+            <div id="year_box">
+                <ul>
+                    <li>2013</li>
+                    <li>2014</li>
+                    <li>2015</li>
+                    <li>2016</li>
+                    <li>2017</li>
+                    <li>2018</li>
+                    <li>2019</li>
+                    <li>2020</li>
+                    <li>2021</li>
+                    <li>2022</li>
+                    <li>2023</li>
+                    <li>2024</li>
+                </ul>
+            </div>
+            <div id="month_box">
+                <ul id="month">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/iscroll.js" type="text/javascript"></script>
+    <script src="js/initial_date.js" type="text/javascript"></script>
+
+    <script>
+        $(function () {
+            //启动title文字
+            $("[data-toggle='tooltip']").tooltip();
+            //平滑滚动
+            var scrol = new IScroll('#wrapperUl', { scrollX: true, freeScroll: true, click: true });
+            //员工统计
+            $('.staff_totle .back_ig').bind("click", function () {
+                location.href = 'dk.html';
+            })
+        })
+    </script>
+</body>
+</html>

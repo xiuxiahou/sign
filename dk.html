@@ -1,0 +1,864 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <!-- 禁止添加小广告-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- QQ强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- UC强制全屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <meta name="keywords" content="零时尚打卡"/>
+    <!-- 禁止数字识自动别为电话号码 -->
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>打卡</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="mobiscroll/css/mobiscroll.css" rel="stylesheet" type="text/css">
+    <link href="mobiscroll/css/mobiscroll_002.css" rel="stylesheet" type="text/css">
+    <link href="mobiscroll/css/mobiscroll_003.css" rel="stylesheet" type="text/css">
+    <!--<link rel="stylesheet" href="css/apply.css"/>-->
+    <!--<link rel="stylesheet" href="css/css.css"/>-->
+
+    <script>
+        (function (w) {
+            s();
+            var e = ("onorientationchange" in w) ? "orientationchange" : "resize";
+            w.addEventListener(e, function () {
+                setTimeout(function () {
+                    s()
+                }, 200)
+            }, false);
+            function s() {
+                var a = w.innerWidth;
+                var b = 20 * (a / 320);
+                if (b > 40) {
+                    b = 40;
+                }
+                document.querySelector("html").style.fontSize = b + "px";
+            }
+        })(window);
+    </script>
+
+</head>
+<body class="dk_box">
+<div class="loading">
+    <div class="load_box">
+        <div class="img_gif"></div>
+        <p class="load_txt">正在加载，请稍后...</p>
+    </div>
+</div>
+<div class="big_all_div">
+    <div class="lf_rg">
+        <div id="left_box">
+            <ul class="left_ul">
+                <li><a href="#">首页</a></li>
+                <li><a href="#"><img src="img/cehua/1@2x.png" alt="png" />小蝶扫码</a></li>
+                <li><a href="#"><img src="img/cehua/2@2x.png" alt="png" />信息查询</a></li>
+                <li><a href="#"><img src="img/cehua/3@2x.png" alt="png" />办公管理</a></li>
+                <li><a href="shopCount.html"><img src="img/cehua/4@2x.png" alt="png" />数据统计</a></li>
+                <!--<li><a href="yuangongtj.html">员工统计</a></li>-->
+                <li><a href="#"><img src="img/cehua/5@2x.png" alt="png" />门店分布</a></li>
+                <li><a href="sz.html"><img src="img/cehua/6@2x.png" alt="png" />个人设置</a></li>
+                <li><a href="#"><img src="img/cehua/7@2x.png" alt="png" />我的积分</a></li>
+                <li class="tcdl" onclick="loginOut()"><a><img src="img/cehua/8@2x.png" alt="png" />退出登录</a></li>
+            </ul>
+           
+        </div>
+        <div id="right_out_box">
+            <div id="right_box">
+                <div id="til_dk" class="til_dk">
+                    <div class="head_til">
+                        <img class="kq_tx" src="img/dlzc/head.png" alt="头像"/>
+                    </div>
+                    <img class="dk_logo" src="img/dlzc/login_logo_@2x.png" alt="logo"/>
+
+                    <span class="dialog">+</span>
+                    <span class="triangle"></span>
+                    <ul class="dialog_ul">
+                        <li><img class="jbsq" src="img/dlzc/1qj@2x.png" alt="qj"/>请假</li>
+                        <li><img class="jbsq" src="img/dlzc/2jb@2x.png" alt="jb"/>加班</li>
+                        <li><img class="jbsq" src="img/dlzc/3wq@2x.png" alt="wq" />外勤</li>
+                        <li><img class="jbsq" src="img/dlzc/youj.png" alt="yj" />发件</li>
+                    </ul>
+                    <div class="dialog_ul_bg"></div>
+                </div>
+                <div id="all_div" class="all_div">
+                    <div id="content_0" class="content_0">
+                        <div class="dk_big">
+                            <div class="dk_time" id="dk_time">
+                                <div class="header_img_box">
+                                    <img class="header_img" src="img/dlzc/head.png" alt="头像"/>
+                                </div>
+
+                                <p class="go_off_work">新的一天，你好</p>
+
+                                <p class="dp"><span>打卡环境：</span>某家店铺</p>
+
+                                <p class="num"><span>签到排名：</span>第三名</p>
+
+                                <div class="btn_qd">
+                                    <button type="button" id="da_btn" class="da_btn" data-count="0">签到</button>
+                                </div>
+                            </div>
+                            <!--打卡统计-->
+                            <div class="dk_count">
+                                <p class="count_til">打卡统计</p>
+                                <div class="num_count">
+                                    <ul class="tit_ul">
+                                        <li class="max_wd">环境</li>
+                                        <li class="max_wd">迟到</li>
+                                        <li class="max_wd">早退</li>
+                                        <li class="max_wd">签到</li>
+                                        <li class="max_wd">签退</li>
+                                        <li class="riqi">日期</li>
+                                    </ul>
+                                    <div id="wraperlist">
+                                        <ul id="attenList">
+                                            <li>
+                                                <ul class="sj_ul">
+                                                    <li class="max_wd">网络部</li>
+                                                    <li class="max_wd"><img src="img/hollow.png" alt="png"/></li>
+                                                    <li class="max_wd"><img src="img/solid.png" alt="png"/></li>
+                                                    <li class="max_wd"><img src="img/hollow.png" alt="png"/></li>
+                                                    <li class="max_wd"><img src="img/solid.png" alt="png"/></li>
+                                                    <li class="riqi">2012/12/12</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <!--考勤页面-->
+                    <div id="content_1" class="content_1">
+                        <div class="module_big">
+                            <div class="rili">
+                                <span><</span>
+                                <input type="text" class="input" id="USER_AGE" readonly="true"/>
+                                <span>></span>
+                            </div>
+                            <div class="module_box" id="module_box">
+                                <div id="cont1scroller">
+                                    <div class="kq_module i_module" id="qjNum">
+                                        <p><span class="ts">请假</span> <i>2</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="jbNum">
+                                        <p><span class="ts">加班</span> <i>2</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="wqNum">
+                                        <p><span class="ts">外勤</span> <i>1</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="bkNum">
+                                        <p><span class="ts">补卡</span> <i>3</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="absence">
+                                        <p><span class="ts">未签到</span> <i>0</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="noSignOut">
+                                        <p><span class="ts">未签退</span> <i>12</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="lateCount">
+                                        <p><span class="ts">迟到</span> <i>20</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="leaveEarlyCount">
+                                        <p><span class="ts">早退</span> <i>20</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="arrEarlyCount">
+                                        <p><span class="ts">早到</span> <i>30</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module i_module" id="leaveLateCount">
+                                        <p><span class="ts">晚退</span> <i>20</i> <span class="min">次</span></p>
+                                        <img class="eye_img" src="img/dlzc/xj@2x.png" alt="眼睛"/>
+                                    </div>
+                                    <div class="kq_module" id="add_class">
+                                        <div class="nf_box">
+                                            <img src="img/dlzc/nf@2x.png" alt="年份" class="nf_img"/>
+                                            <span class="nf_txt">年</span>
+                                        </div>
+                                        <p><span class="ts">需补班</span> <i>2</i> <span class="min">天</span></p>
+                                    </div>
+                                    <div class="kq_module" id="have_holiday">
+                                        <div class="nf_box">
+                                            <img src="img/dlzc/nf@2x.png" alt="年份" class="nf_img"/>
+                                            <span class="nf_txt">年</span>
+                                        </div>
+                                        <p><span class="ts">可休期</span> <i>3</i> <span class="min">天</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content_2" class="content_2">
+                        <div class="cot2_ulbox">
+                            <div id="sogo_inp">
+                                <input id="select_inp" type="text" placeholder="姓名/手机号"/>
+                                <img id="sogo" src="img/cz_03.png" alt="搜索" onclick="initContracts()"/>
+                            </div>
+                            <div id="wrapper" class="content_list">
+                                <div id="scroller">
+                                    <div class="all_person">
+                                        <p id="department_box">
+                                            <span>部门</span>
+                                            <img class="del" src="img/down1.png" alt="下拉列表"/>
+                                        </p>
+
+                                        <div id="dep_list_box">
+                                            <div class="brance_parent">
+                                                <p class="brance">
+                                                    <span>总部-网络部</span>
+                                                    <img class="del" src="img/down1.png" alt="下拉列表"/>
+                                                </p>
+
+                                                <div class="people_list">
+                                                    <ul>
+                                                        <li class="out_li">
+                                                            <img class="tx_hd" src="img/dlzc/head.png" alt="头像"/>
+                                                            <ul class="tx_ul">
+                                                                <li class="tx_name">开源</li>
+                                                                <li class="tx_post">点net</li>
+                                                                <li class="num_phon">12312312342</li>
+                                                                <li class="tx_dj">
+                                                                    <img src="img/nav_fh@2x2.png"
+                                                                         alt="png"/>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="brance_parent">
+                                                <p class="brance">
+                                                    <span>总部-合规部</span>
+                                                    <img class="del" src="img/down1.png" alt="下拉列表"/>
+                                                </p>
+
+                                                <div class="people_list">
+                                                    <ul>
+                                                        <li class="out_li">
+                                                            <img class="tx_hd" src="img/dlzc/head.png" alt="头像"/>
+                                                            <ul class="tx_ul">
+                                                                <li class="tx_name">开源</li>
+                                                                <li class="tx_post">点net</li>
+                                                                <li class="num_phon">12312312342</li>
+                                                                <li class="tx_dj">
+                                                                    <img src="img/nav_fh@2x2.png"
+                                                                         alt="png"/>
+                                                                </li>
+                                                            </ul>
+                                                        </li>                                                
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="add_list">所有联系人</p>
+                                    <ul class="content2_ul" id="contact">                                 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--消息界面-->
+                    <div id="content_3" class="content_3">
+                            <div class="system">
+                                <img src="img/logo_tx.png" class="message_logo" alt="png" />
+                                <b>通知</b>
+                                <span class="num_email">1</span>
+                            </div>
+                        <!-- 消息 -->
+                        <div class="xiaoxi"> 
+                            <div id="content_system" class="cot3_ulbox">
+                                <ul class="system_ul">
+                                    <li class="out_li3"><input type="hidden"  value="0" />
+                                        <img class="tx3_hd" src="img/dlzc/head.png" alt="头像" />
+                                        <ul class="tx3_ul">
+                                            <li class="cot3_til"><i>www</i><b></b></li>
+                                            <li class="cot_poster">夏鸥</li>
+                                            <li class="content_info">夏鸥领时尚EHS手册</li>
+                                            <li class="tx3_dj">14:22:12</li>
+                                        </ul>
+                                    </li>
+                                    <li class="out_li3">
+                                        <img class="tx3_hd" src="img/dlzc/head.png" alt="头像" />
+                                        <ul class="tx3_ul">
+                                            <li class="cot3_til">www</li>
+                                            <li class="cot_poster">夏鸥</li>
+                                            <li class="content_info">夏鸥领时尚EHS手册</li>
+                                            <li class="tx3_dj">14:22:12</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+                <!--页面底部-->
+                <div id="da_footer" class="da_footer">
+                    <div id="qd_ft">
+                        <img src="img/dlzc/1qd@2x.png" alt="签到"/>
+                        <p>签到</p>
+                    </div>
+                    <div class="kq_ft">
+                        <img src="img/dlzc/2kq@2x.png" alt="考勤"/>
+                        <p>考勤</p>
+                    </div>
+                    <div class="tx_ft">
+                        <img src="img/dlzc/3tx@2x.png" alt="通讯"/>
+                        <p>通讯</p>
+                    </div>
+                    <div class="xx_ft">
+                        <img src="img/dlzc/4xx@x.png" alt="消息"/>
+                        <p>消息</p>
+                    </div>
+                </div>
+            </div>
+            <div id="right_box_shade"></div>
+        </div>
+
+        <!--考勤弹出层-->
+        <!-- 请假，加班，外勤详情单-->
+        <div id="qj_diag" class="xx_diag">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png"/> <span>返回</span></p>
+                <b>记录</b>
+            </div>
+            <div class="shzt">
+                <ul class="qj_til">
+                    <li><i class="green"></i> <b>通过</b></li>
+                    <li><i class="red"></i> <b>未通过</b></li>
+                    <li><i class="yellow"></i> <b>审核中</b></li>
+                </ul>
+            </div>
+            <div id="wrape_qj" class="lsjl">
+                <div id="scroll_lsjl">
+                    <ul class="lsjl_l">
+                        <li><label>开始日期</label> <span>2014-08-12 09:00</span></li>
+                        <li><label>结束日期</label> <span>2014-08-15 18:00</span></li>
+                        <li><label>天数</label> <span>2天</span></li>
+                        <li><label>审核状态</label> <i class="yellow"></i></li>
+                    </ul>
+                    <ul class="lsjl_l">
+                        <li><label>开始日期</label> <span>2014-08-12 09:00</span></li>
+                        <li><label>结束日期</label> <span>2014-08-15 18:00</span></li>
+                        <li><label>天数</label> <span>2天</span></li>
+                        <li><label>审核状态</label> <i class="green"></i></li>
+                    </ul>
+                    <ul class="lsjl_l">
+                        <li><label>开始日期</label> <span>2014-08-12 09:00</span></li>
+                        <li><label>结束日期</label> <span>2014-08-15 18:00</span></li>
+                        <li><label>天数</label> <span>2天</span></li>
+                        <li><label>审核状态</label> <i class="yellow"></i></li>
+                    </ul>
+                    <ul class="lsjl_l">
+                        <li><label>开始日期</label> <span>2014-08-12 09:00</span></li>
+                        <li><label>结束日期</label> <span>2014-08-15 18:00</span></li>
+                        <li><label>天数</label> <span>2天</span></li>
+                        <li><label>审核状态</label> <i class="red"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 补卡详情-->
+        <div id="bk_info" class="xx_diag">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png"/> <span>返回</span></p>
+                <b>记录</b>
+            </div>
+            <div class="shzt">
+                <ul class="til_bk">
+                    <li>日期</li>
+                    <li>状态</li>
+                </ul>
+            </div>
+            <div class="end_card">
+                <ul class="info">
+                    <li><label>2014-10-14</label> <span>已补卡</span></li>
+                    <li><label>2014-08-04</label> <span>已补卡</span></li>
+                    <li><label>2014-08-04</label> <span>已补卡</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 未签到，未签退详情单-->
+        <div id="no_sign" class="xx_diag">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png"/> <span>返回</span></p>
+                <b>记录</b>
+            </div>
+            <div class="sign_til">
+                <ul class="sign_til_li">
+                    <li>日期</li>
+                    <li>编辑</li>
+                </ul>
+            </div>
+            <div class="bk_date">
+                <ul class="sign_ul">
+                    <li><label>2014-10-14</label><input type="button" value="补卡"/></li>
+                    <li><label>2014-08-04</label><input type="button" value="补卡"/></li>
+                    <li><label>2014-02-10</label><input type="button" value="补卡"/></li>
+                    <li><label>2014-05-24</label><input type="button" value="补卡"/></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--迟到，早退详情单-->
+        <div id="bk_diag" class="xx_diag">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png" /> <span>返回</span></p>
+                <b>记录</b>
+            </div>
+            <div class="late">
+                <ul class="til_bk">
+                    <li>日期</li>
+                    <li>分钟</li>
+                    <li>编辑</li>
+                </ul>
+            </div>
+            <div class="bk_date">
+                <ul class="bk_ul">
+                    <li><label>2014-10-14</label><b>30分钟</b><input type="button" value="补卡" /></li>
+                    <li><label>2014-08-04</label><b>30分钟</b><input type="button" value="补卡" /></li>
+                    <li><label>2014-02-10</label><b>30分钟</b><input type="button" value="补卡" /></li>
+                    <li><label>2014-05-24</label><b>30分钟</b><input type="button" value="补卡" /></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 早到，晚退详情单-->
+        <div id="jf_diag" class="xx_diag">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png"/> <span>返回</span></p>
+                <b>记录</b>
+            </div>
+            <div class="shzt">
+                <ul class="til_bk">
+                    <li>日期</li>
+                    <li>时间</li>
+                </ul>
+            </div>
+            <div class="bk_date">
+                <ul class="bk_ul">
+                    <li><label>2014-10-14</label> <span>10分钟</span></li>
+                    <li><label>2014-08-04</label> <span>20分钟</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--通讯弹出层-->
+        <div id="dig_inf" class="dig_inf">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png"/> <span class="bg_befo">返回</span></p>
+                个人信息
+            </div>
+            <div class="person_img_box">
+                <div class="person_hed_border">
+                    <img class="person_hed" src="img/dlzc/big_head.png" alt="头像"/>
+                </div>
+
+                <p class="mz">美女</p>
+
+                <div class="person_post">
+                    <p class="position">0时尚</p>
+
+                    <p class="post">部门经理</p>
+                </div>
+            </div>
+            <ul class="person_ul">
+                <li class="persong_two">
+                    <p class="gray">手机号</p>
+
+                    <p class="nm_pn">1101010101</p>
+                </li>
+            </ul>
+            <div class="phone">
+                <a class="telephone" href=""><img src="img/dlzc/dh@2x.png" alt="接通"/></a>
+                <a class="information" href=""><img src="img/dlzc/dx@2x.png" alt="挂断"/></a>
+            </div>
+        </div>
+
+        <!--通知弹出层-->
+        <div id="message">  <!--二级页面-->
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png" /><span> 返回</span></p>
+                通知
+            </div>
+            <div id="info_msg">
+                <ul>
+                    <li><p><span>员工手册</span><b></b></p><i>2014-10-14</i><h6>content</h6></li>
+                </ul>
+            </div>
+        </div> 
+        <!--消息弹出层-->
+        <div id="article_inf" class="article_inf">
+            <div class="person_infi">
+                <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png" /><span> 返回</span></p>
+                <b>员工手册</b>
+            </div>
+            <div class="mes_cont">员工手册员工手册员工手册员工手册员工手册员工手册</div>
+        </div>
+
+        <!--提示信息-->
+        <div class="bg_dialog"></div>
+        <div class="dk_dialog">
+            <p class="warn_p">温馨提示</p>
+
+            <p class="dk_inf_p"></p>
+            <input type="button" class="prompt" value="确定"/>
+        </div>
+
+        <div class="apply_dialog">
+            <p class="warn_p">温馨提示</p>
+
+            <p class="card_sure">确定要补卡吗？</p>
+            <input type="button" class="cancel" value="取消"/>
+            <input type="button" class="determine" value="确定"/>
+        </div>
+
+        <!-- 申请表单（请假，加班，外勤,邮件发送）-->
+        <div class="apply_form">
+            <div class="til_bak">
+                <p class="back_befo">
+                    <img src="img/nav_fh@2x.png" alt="png"/><span>返回</span>
+                </p><img src="img/dlzc/login_logo_@2x.png" alt="logo" id="logo_apply"/>
+            </div>
+            <div class="mian_apply">
+                <!--请假申请-->
+                <div class="qjsq">
+                    <div id="main_work" class="main_work">
+                        <div id="inp_apply" class="inp_apply">
+                            <form enctype="multipart/form-data" id="formLeave">
+                                <input type="hidden" name="AdminId" value="0" id="leaveAdminId" />
+                                <p>
+                                    <label>休假类型</label><select name="VacationType" id="xjlx">
+                                        <option value="0">病假</option>
+                                        <option value="1">事假</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    <label>时间</label><input type="text" name="StartTime" id="inpstart" placeholder="开始时间" readonly="readonly" class="leaveTime">
+                                    <input type="text" name="EndTime" id="inpend" class="end_time leaveTime" placeholder="结束时间" readonly="readonly">
+                                </p>
+
+                                <p>
+                                    <label>天数</label><input type="text" name="LeaveDays" readonly="readonly" id="LeaveDays" />
+                                </p>
+
+                                <p>
+                                    <label>带薪休假</label><select name="PaidLeaveDays" id="PaidLeaveDays">
+                                        <option value="0">请选择...</option>
+                                    </select>
+                                </p>
+
+                                <p>
+                                    <label>使用年假</label><select name="AnnualLeaveDays" id="nianj">
+                                        <option value="0">请选择...</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    <label class="remark">原因</label><textarea row="2" cols="30" id="leaveReason" name="LeaveReason"></textarea>
+                                </p>
+                                <input type="button" value="提交" class="btn_sure" id="applyLeave" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--加班申请-->
+                <div class="jbsq  hiden">
+                    <div class="main_work">
+                        <div class="inp_apply">
+                            <form enctype="multipart/form-data" id="formOvertime">
+                                <input type="hidden" name="AdminId" value="0" id="overtimeAdminId" />
+                                <p>
+                                    <label>加班时间</label><input type="text" name="StartTime" id="jbstart" placeholder="开始时间" readonly="readonly" class="overtime">
+                                    <input type="text" name="EndTime" id="jbend" class="end_time overtime" placeholder="结束时间" readonly="readonly">
+                                </p>
+                                <p>
+                                    <label>天数</label><input type="text" name="OvertimeDays" id="OvertimeDays" readonly="readonly" />
+                                </p>
+
+                                <p>
+                                    <label class="remark">原因</label><textarea row="2" cols="30" id="OvertimeReason" name="OvertimeReason"></textarea>
+                                </p>
+                                <input type="button" value="提交" class="btn_sure" id="applyOvertime" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--外勤申请-->
+                <div class="wqsq hiden">
+                    <div class="main_work">
+                        <div class="inp_apply">
+                            <form enctype="multipart/form-data" id="formField">
+                                <input type="hidden" id="FieldWorkDays" name="FieldWorkDays" value="0"/>
+                                <input type="hidden" id="fieldAdminId" name="AdminId" value="0"/>
+
+                                <p>
+                                    <label>外勤时间</label><input type="text" class="start_time fieldTime" name="StartTime" id="wqstart"
+                                           placeholder="开始时间" readonly/>
+                                </p>
+
+                                <p>
+                                    <input type="text" class="end_time fieldTime" id="wqend" placeholder="结束时间" readonly
+                                           name="EndTime"/>
+                                </p>
+
+                                <p>
+                                    <label>天数</label><input type="text" id="FieldDays" name="FieldDays" readonly="readonly"/>
+                                </p>
+
+                                <p>
+                                    <label class="remark">原因</label><textarea row="2" cols="30" name="FieldReason" id="FieldReason"></textarea>
+                                </p>
+                                <input type="button" value="提交" class="btn_sure" id="applyField"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--发送邮件-->
+                <div id="emailSend">                   
+                    <div class="emil_box">
+                        <div class="send_history">
+                            <div class="bgWh">发送邮件</div>
+                            <div>发送记录</div>
+                        </div>
+                        <div id="sendChange">
+                            <div id="send">
+                                <div>
+                                    <!--<select>
+                                        <option value="hou">hou</option>
+                                        <option value="liu">liu</option>
+                                    </select>-->
+                                    <div class="seled">
+                                        <input type="type" class="address" name="address" data-int placeholder="收件人" />
+                                        <img class="chax" src="img/cz_03.png" alt="ss" />
+                                        <div id="linkManBg"></div>
+                                        <div id="linkMan">
+                                            <ul>
+                                                <li>0-fashion</li>
+                                                <li>零时尚</li>
+                                            </ul>
+                                        </div>                                        
+                                    </div>
+                                    <input type="type" class="til" name="til" placeholder="标题" />
+                                    <textarea class="contMes" placeholder="内容"></textarea>
+                                    <input type="button" class="btnSend" name="name" value="发 送" />
+                                </div>
+                            </div>
+                            <!--消息记录-->
+                            <div id="history">
+                                <ul class="hisUl">
+                                    <li class="out_li3">
+                                        <img class="tx3_hd" src="img/dlzc/head.png" alt="头像" />
+                                        <ul class="tx3_ul">
+                                            <li class="cot3_til">www</li>
+                                            <li class="cot_poster">夏鸥</li>
+                                            <li class="content_info">夏鸥领时尚EHS手册</li>
+                                            <li class="tx3_dj">14:22:12</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--底部导航-->
+            <div class="foot_apply">
+                <ul class="btn_li">
+                    <li class="font_col"><img src="img/dlzc/1qd@2x.png" alt="qj"/>
+                        <p>请假</p>
+                    </li>
+                    <li><img src="img/dlzc/2jb@2x.png" alt="jb"/>
+                        <p>加班</p>
+                    </li>
+                    <li><img src="img/dlzc/3wq@2x.png" alt="wq"/>
+                        <p>外勤</p>
+                    </li>
+                    <li>
+                        <img src="img/dlzc/youj.png" alt="wq" />
+                        <p>邮件</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 日历年月弹出层-->
+        <div id="calender">
+            <div>
+                <span class="last"><</span>
+                 <input type="text" value="2014" id="year" readonly="readonly"/>
+                <span class="next">></span>
+            </div>
+            <div id="showYearMoth">
+                <div id="year_month">
+                    <div id="year_box">
+                        <ul>
+                            <li>2013</li>
+                            <li>2014</li>
+                            <li>2015</li>
+                            <li>2016</li>
+                            <li>2017</li>
+                            <li>2018</li>
+                            <li>2019</li>
+                            <li>2020</li>
+                            <li>2021</li>
+                            <li>2022</li>
+                            <li>2023</li>
+                            <li>2024</li>
+                        </ul>
+                    </div>
+                    <div id="month_box">
+                        <ul id="month">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                            <li>9</li>
+                            <li>10</li>
+                            <li>11</li>
+                            <li>12</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 离职单-->
+        <div class="lizhi">
+            <div class="til_bak">
+                <p class="back_befo" id="leave">
+                   <img src="img/nav_fh@2x.png" alt="png"/><span>返回</span>
+                </p>离职申请
+            </div>
+            <form action="" id="leave_form">
+                <input name="AdminId" id="ResignationId" value="0" type="hidden"/>
+                <p>
+                    <label for="leaveOffice" class="leave_txt">时间</label><input type="text" name="ResignationDate" id="leaveOffice" placeholder="离职时间" readonly="readonly">
+
+                </p>
+                <p>
+                    <label for="leave_because" class="because_txt">原因</label><textarea name="ResignationReason" id="leave_because" cols="30" rows="10"></textarea>
+                </p>
+                <input type="button" value="确定" class="btn_sure" id="leave_btn"/>
+            </form>
+            <!--离职返回状态-->
+            <div class="leave_info">
+                <ul class="state">
+                    <li><b>通过</b><img src="img/pass.png" alt="通过"/></li>
+                    <li><b>未通过</b><img src="img/not_pass.png" alt="未通过"/></li>
+                    <li><b>审核中</b><img src="img/audit.png" alt="审核中"/></li>
+                </ul>
+
+                <p><label>离职时间:</label><input type="text" class="dateTm" value="2016-8-12" /></p>
+                <p><label class ="bf_leave">离职原因:</label><span class="leaveBf"></span></p>
+
+                <ul class="leave_ul">
+                    <li class="pass"><span>人事审核</span><a href="#" class="tooltip-test" data-toggle="tooltip" title="通过"><img src="img/pass.png" alt="通过" /></a></li>
+                    <li class="audit"><span>技术审核</span><a href="#" class="tooltip-test" data-toggle="tooltip" title="审核中 "><img src="img/audit.png" alt="审核中" /></a></li>
+                    <li class="notPass"><span>领导审核</span><a href="#" class="tooltip-test" data-toggle="tooltip" title="未通过"><img src="img/not_pass.png" alt="未通过" /></a></li>
+                </ul>
+            </div>
+            <div id="leave_prompt">
+                <h3>温馨提示</h3>
+                <div class="leavePtxt">
+                    <p>1.请核对好离职时间</p>
+                    <p>2.离职之前请做好交接工作</p>
+                    <p>3.请到人事部门办理离职手续</p>
+                    <p>4.账号有关信息将在离职当天被注销</p>
+                    <p>5.一旦提交了离职申请单,则不可更改</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/fastclick.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery.min.js"></script>
+<!--title提示-->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<!--日历-->
+<script src="mobiscroll/js/mobiscroll_002.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll_004.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll_003.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll_005.js" type="text/javascript"></script>
+
+
+<!--滚动-->
+<script src="js/iscroll.js"></script>
+<script src="js/initial_date.js"></script>
+
+<script>
+    $(function () {
+        //启动title文字
+            $("[data-toggle='tooltip']").tooltip();
+        //手机 PC端点击延迟
+        new FastClick(document.getElementById("left_box"));
+        new FastClick(document.getElementById("right_box_shade"));
+        new FastClick(document.getElementById("til_dk"));
+        new FastClick(document.getElementById("dig_inf"));
+        new FastClick(document.getElementById("article_inf"));
+        new FastClick(document.getElementById("da_footer"));
+        new FastClick(document.getElementById("content_0"));
+        new FastClick(document.getElementById("content_1"));
+//        new FastClick(document.getElementById("module_box"));
+        new FastClick(document.getElementById("content_2"));
+        new FastClick(document.getElementById("content_3"));
+        //页面加载前动画
+        $('.loading').show().delay(1000).hide(0);
+
+        /*平滑滑动*/
+        var modulScroll = new IScroll('#wraperlist', {scrollX: true, freeScroll: true, click: true});
+        var listScroll = new IScroll('#module_box', {scrollX: true, freeScroll: true, click: true});
+        var myScroll = new IScroll('#wrapper', {scrollX: true, freeScroll: true, click: true});
+        var contSt = new IScroll('#content_system', { scrollX: true, freeScroll: true, click: true });
+        var wrape_qjlb = new IScroll('#wrape_qj', {scrollX: true, freeScroll: true, click: true});
+        var mian_wk = new IScroll('#main_work', { scrollX: true, freeScroll: true, click: true });
+        var history = new IScroll('#history', { scrollX: true, freeScroll: true, click: true });
+        var info_msg = new IScroll('#info_msg', { scrollX: true, freeScroll: true, click: true });
+        var send = new IScroll('#send', { scrollX: true, freeScroll: true, click: true });
+        var linkMan = new IScroll('#linkMan', { scrollX: true, freeScroll: true, click: true });
+        
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+            modulScroll.refresh();
+            listScroll.refresh();
+            myScroll.refresh();
+            contSt.refresh();
+            wrape_qjlb.refresh();
+            mian_wk.refresh();
+            history.refresh();
+            info_msg.refresh();
+            send.refresh();
+            linkMan.refresh();
+        }, false);
+
+    });
+
+</script>
+
+</body>
+</html>

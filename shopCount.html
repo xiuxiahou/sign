@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta id="viewport" name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>店铺统计</title>
+
+    <link rel="stylesheet" href="tubiao/swiper/swiper.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/shopCss.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        (function (w) {
+            s();
+            var e = ("onorientationchange" in w) ? "orientationchange" : "resize";
+            w.addEventListener(e, function () {
+                setTimeout(function () {
+                    s()
+                }, 200)
+            }, false);
+            function s() {
+                var a = w.innerWidth;
+                var b = 20 * (a / 320);
+                if (b > 40) {
+                    b = 40;
+                }
+                document.querySelector("html").style.fontSize = b + "px";
+            }
+        })(window);
+    </script>
+
+    <style>
+        .biaoTi {
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            font-size: 0.75rem;
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 0 20px 20px 0;
+            padding: 5px 20px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            background-color: transparent;
+            color: #000;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body class="shopAccount">
+<div>
+    <div id="til_dk" class="til_dk">
+        <div class="head_til">
+            <img class="kq_tx" src="img/dlzc/head.png" alt="头像"/>
+        </div>
+        <img class="dk_logo" src="img/dlzc/login_logo_@2x.png" alt="logo"/>
+    </div>
+    <div class="shopDate">
+        <div class="shopChange">
+            <img src="img/leibie/qh@2x.png" alt="png"/>
+            <span class="shopD">风雅店</span>
+        </div>
+        <div class="dateTim">
+            <div class="whiteBg">月</div>
+            <div>周</div>
+        </div>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- 销售件-->
+            <div class="swiper-slide">
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="main" style="width:100%;height:300px"></div>
+                <div class="biaoTi">销 售 . 件</div>
+            </div>
+            <!-- 金额K-->
+            <div class="swiper-slide">
+                <div id="main2" style="width:100%;height:300px"></div>
+                <div class="biaoTi">金 额 . K</div>
+            </div>
+            <!-- 退货件-->
+            <div class="swiper-slide">
+                <div class="tH_box">
+                    <ul class="month">
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                    </ul>
+                    <p class="montil">(月/2016)</p>
+                    <ul class="pillar">
+                        <li><span></span><b></b><i>1</i></li>
+                        <li><span></span><b></b><i>2</i></li>
+                        <li><span></span><b></b><i>3</i></li>
+                        <li><span></span><b></b><i>4</i></li>
+                        <li><span></span><b></b><i>6</i></li>
+                        <li><span></span><b></b><i>5</i></li>
+                        <li><span></span><b></b><i>7</i></li>
+                    </ul>
+                </div>
+                <div class="biaoTi">退 货 . 件</div>
+            </div>
+            <!-- 金额k-->
+            <div class="swiper-slide">
+                <div class="jinErK">
+                    <ul class="dateQiu">
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                    </ul>
+                    <div class="qiupaiBg">
+                        <ul class="pingPang">
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="vertical">
+                                    <li class="point"><b>.</b><b>.</b></li>
+                                    <li class="qiuQ">
+                                        <div class="out_iner">
+                                            <div class="outer">
+                                                <div class="inner">6K</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="biaoTi">金 额 . K</div>
+            </div>
+            <!-- 会员个-->
+            <div class="swiper-slide">
+                <div class="huiyuan">
+                    <ul class="huiy_month">
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                    </ul>
+                    <ul class="huiy_peo">
+                        <li>
+                            <ul class="liImg">
+                                <li><img src="img/r.png" alt="img"/></li>
+                                <li>2</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="biaoTi">会 员 . 个</div>
+            </div>
+            <!--充值k-->
+            <div class="swiper-slide">
+                <div class="czBox">
+                    <ul class="montUl">
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                    </ul>
+                    <div class="chongZhi">
+                        <ul class="peopleUl">
+                            <li><b></b> <span></span></li>
+                            <li><b></b> <span></span></li>
+                            <li><b></b> <span></span></li>
+                            <li><b></b> <span></span></li>
+                            <li><b></b> <span></span></li>
+                            <li><b></b> <span></span></li>
+                            <li><b></b> <span></span></li>
+                        </ul>
+                        <ul class="moneyUl">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="biaoTi">充 值 . K</div>
+            </div>
+            <!--热销品牌-->
+            <div class="swiper-slide">
+                <div class="rxpBox">
+                    <span class="spone">NO1.HION</span>
+                    <span class="sptwo">NO2.HN</span>
+                    <span class="spthree">NO3.ON</span>
+                    <span class="spfour">NO4.FAAA</span>
+                    <span class="spfive">NO5.FAS</span>
+
+                    <div class="rxpdouble">
+                        <img src="img/bing/1.png" alt="png"/>
+                        <img src="img/bing/2.png" alt="png"/>
+                        <img src="img/bing/3.png" alt="png"/>
+                        <img src="img/bing/4.png" alt="png"/>
+                        <img src="img/bing/5.png" alt="png"/>
+                    </div>
+                </div>
+                <div class="biaoTi">热 销 品 牌</div>
+            </div>
+            <!-- 热销品类-->
+            <div class="swiper-slide">
+                <div id="cil_box">
+                    <div class="center_til">1212</div>
+                    <!-- 上装-->
+                    <div class="img_cil one_box">
+                        <div id="one" data-dimension="50" data-width="8" data-percent="20" data-fgcolor="#BDBBD0"
+                             data-fontsize="40" data-bgcolor="#79749D"></div>
+                        <span class="span_one">...............</span>
+                        <img class="img_one" src="img/leibie/sz@2x.png" alt="png"/>
+                    </div>
+                    <!-- 下装-->
+                    <div class="img_cil two_box">
+                        <div id="two" data-dimension="100" data-width="9" data-percent="45" data-fgcolor="#BAB6CD"
+                             data-bgcolor="#79749D"></div>
+                        <span class="span_two">...............</span>
+                        <img class="img_two" src="img/leibie/xz@2x.png" alt="png"/>
+                    </div>
+                    <!-- 鞋子-->
+                    <div class="img_cil three_box">
+                        <div id="three" data-dimension="150" data-width="9" data-percent="55" data-fgcolor="#D5D3E1"
+                             data-bgcolor="#79749D"></div>
+                        <span class="span_three">...............</span>
+                        <img class="img_three" src="img/leibie/x@2x.png" alt="png"/>
+                    </div>
+                    <!--连衣裙-->
+                    <div class="img_cil four_box">
+                        <div id="four" data-dimension="200" data-width="9" data-percent="75" data-fgcolor="#D4D2DF"
+                             data-bgcolor="#79749D"></div>
+                        <span class="span_four">...............</span>
+                        <img class="img_four" src="img/leibie/lt@2x.png" alt="png"/>
+                    </div>
+                    <!--围巾-->
+                    <div class="img_cil five_box">
+                        <div id="five" data-dimension="250" data-width="9" data-percent="65" data-fgcolor="#FFFFFF"
+                             data-bgcolor="#79749D"></div>
+                        <span class="span_five">...............</span>
+                        <img class="img_five" src="img/leibie/wj@2x.png" alt="png"/>
+                    </div>
+
+
+                </div>
+                <div class="biaoTi">热 销 品 类</div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="tubiao/swiper/swiper.min.js"></script>
+<script src="tubiao/js/echarts.js"></script>
+<script src="tubiao/js/jquery.circliful.js"></script>
+<script src="tubiao/js/tubiao.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

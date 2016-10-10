@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta id="viewport" name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>扫码支付</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        (function (w) {
+            s();
+            var e = ("onorientationchange" in w) ? "orientationchange" : "resize";
+            w.addEventListener(e, function () {
+                setTimeout(function () {
+                    s()
+                }, 200)
+            }, false);
+            function s() {
+                var a = w.innerWidth;
+                var b = 20 * (a / 320);
+                if (b > 40) {
+                    b = 40;
+                }
+                document.querySelector("html").style.fontSize = b + "px";
+            }
+        })(window);
+    </script>
+
+</head>
+<body id="sm_body">
+    <div class="person_infi">
+        <p class="back_tx back_ig"><img src="img/nav_fh@2x.png" alt="png" /> <span>返回</span></p>
+        <b>扫码</b>
+    </div>
+
+    <div id="video_box">
+        <video id="small" autoplay></video>
+    </div>
+    <p class="ewm">将二维码/条形码放入框内，自动识别</p>
+
+    <div id="line" style="border-top: 1px solid green;"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var video = document.getElementById('small');
+        navigator.webkitGetUserMedia({
+            video: true
+        }, success, error);
+        function success(stream) {
+            video.src = window.webkitURL.createObjectURL(stream);
+            video.play();
+        }
+        function error(err) {
+            alert("video error:" + err);
+        }
+        $(".back_ig").click(function () {
+            location.href = 'dk.html';
+        })
+    </script>
+</body>
+</html>

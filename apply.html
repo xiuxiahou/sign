@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta id="viewport" name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>申请</title>
+    <link href="mobiscroll/css/mobiscroll.css" rel="stylesheet" type="text/css">
+    <link href="mobiscroll/css/mobiscroll_002.css" rel="stylesheet" type="text/css">
+    <link href="mobiscroll/css/mobiscroll_003.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/apply.css"/>
+<script>
+    (function (w) {
+        s();
+        var e = ("onorientationchange" in w) ? "orientationchange" : "resize";
+        w.addEventListener(e, function () {
+            setTimeout(function () {
+                s()
+            }, 200)
+        }, false);
+        function s() {
+            var a = w.innerWidth;
+            var b = 20 * (a / 320);
+            if (b > 40) {
+                b = 40;
+            }
+            document.querySelector("html").style.fontSize = b + "px";
+        }
+    })(window);
+</script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.min.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="til_bak">
+    <p class="back_befo">
+        <img src="img/nav_fh@2x.png" alt="png"/><span>返回</span>
+    </p><img src="img/dlzc/login_logo_@2x.png" alt="logo" id="logo_apply"/>
+</div>
+<div class="mian_apply">
+    <!--请假申请-->
+   <div class="qjsq">
+       <div class="main_work">
+           <div class="inp_apply">
+               <p><label>休假类型</label><select name="xjlx" id="xjlx">
+                   <option value="sj">事假</option>
+                   <option value="bj">病假</option>
+               </select></p>
+               <p><label>时间</label><input type="text" name="inpstart" id="inpstart" placeholder="开始时间" readonly="readonly">
+                   <input type="text" name="inpend" id="inpend" class="end_time" placeholder="结束时间" readonly="readonly">
+               </p>
+               <p><label>天数</label><input type="text"/></p>
+               <p><label>带薪休假</label><input type="text" /></p>
+               <p><label>使用年假</label><select name="nianj" id="nianj">
+                   <option value="0">请选择...</option>
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select>
+               </p>
+               <p><label>调休</label><select name="tiaox" id="tiaox">
+                   <option value="0">请选择...</option>
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select>
+               </p>
+               <p><label class="remark">原因</label><textarea row="2" cols="30"></textarea></p>
+               <input type="button" value="提交" class="btn_sure"/>
+           </div>
+       </div>
+   </div>
+    <!--加班申请-->
+    <div class="jbsq  hiden">
+        <div class="main_work">
+            <div class="inp_apply">
+                <p><label>时间</label><input type="text" name="jbstart" id="jbstart" placeholder="开始时间" readonly>
+                    <input type="text"name="jbend" id="jbend"  class="end_time"placeholder="结束时间" readonly>
+                </p>
+                <p><label>天数</label><input type="text"/></p>
+                <p><label class="remark">原因</label><textarea row="2" cols="30"></textarea></p>
+                <input type="button" value="提交" class="btn_sure"/>
+            </div>
+        </div>
+    </div>
+    <!--外勤-->
+    <div class="wqsq hiden">
+        <div class="main_work">
+            <div class="inp_apply">
+                <p><label>时间</label><input type="text" class="start_time" id="wqstart" placeholder="开始时间" readonly/></p>
+                <p><input type="text" class="end_time" id="wqend" placeholder="结束时间" readonly/></p>
+                <p><label>天数</label><input type="text"/></p>
+                <p><label class="remark">原因</label><textarea row="2" cols="30"></textarea></p>
+                <input type="button" value="提交" class="btn_sure"/>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部导航-->
+<div class="foot_apply">
+    <ul class="btn_li">
+        <li class="font_col"><img src="img/dlzc/1qd@2x.png" alt="qj"/><p>请假</p></li>
+        <li><img src="img/dlzc/2jb@2x.png" alt="jb"/><p>加班</p></li>
+        <li><img src="img/dlzc/3wq@2x.png" alt="wq"/><p>外勤</p></li>
+    </ul>
+</div>
+<script src="mobiscroll/js/jquery.1.7.2.min.js"></script>
+<script src="mobiscroll/js/mobiscroll_002.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll_004.js" type="text/javascript"></script>
+
+<script src="mobiscroll/js/mobiscroll.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll_003.js" type="text/javascript"></script>
+<script src="mobiscroll/js/mobiscroll_005.js" type="text/javascript"></script>
+
+<script src="js/apply_for.js"></script>
+</body>
+</html>
